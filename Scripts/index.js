@@ -1,21 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const inputTask = document.getElementById("input-task");
-    const btnTask = document.getElementById("btn-task");
-    const taskList = document.getElementById("task-list");
-    const clean = document.getElementById("clean-list");
-    const checkbox = document.createElement("input");
-    checkbox.type= checkbox;
+  const checkbox = document.createElement("input");
+  checkbox.type = checkbox;
 
-    btnTask.addEventListener("click", () => {
-        const input = inputTask.value;
+  taskInput.addEventListener("keyup", (event) => {
+    event.key === "Enter" ? addTask() : null;
 
-        taskList.innerHTML = `${checkbox} hola`;
+    if (event.key === "Enter") {
+      addTask();
+      return;
+    }
+  });
 
-    });
+  //Agragar elemento con click
+  btnTask.addEventListener("click", () => {
+    taskList.innerHTML = `${checkbox} hola`;
+  });
 
-    clean.addEventListener("click", () =>{
-        taskList.innerHTML = ``;
-
-
-    })
+  //Limpiar lista
+  cleanList.addEventListener("click", () => {
+    taskList.innerHTML = ``;
+  });
 });
