@@ -5,15 +5,26 @@ document.addEventListener("DOMContentLoaded", () => {
   taskInput.addEventListener("keyup", (event) => {
     event.key === "Enter" ? addTask() : null;
 
-    if (event.key === "Enter") {
-      addTask();
-      return;
-    }
+    /**
+     * Esto es lo mismo que lo anterior, es el operador ternario if-else
+     * if (event.key === "Enter") {
+     *  addTask();
+     *  return;
+     * }
+     */
   });
 
   //Agragar elemento con click
   btnTask.addEventListener("click", () => {
-    taskList.innerHTML = `${checkbox} hola`;
+    const taskText = taskInput.value.trim();
+
+    const li = document.createElement("li");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "checkbox";
+
+    const taskLabel = document.createElement("label");
+    taskLabel.textContent = 
   });
 
   //Limpiar lista
