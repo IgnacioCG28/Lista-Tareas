@@ -1,34 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const checkbox = document.createElement("input");
-  checkbox.type = checkbox;
+  const taskInput = document.getElementById("taskInput");
+  const taskList = document.getElementById("taskList");
 
   taskInput.addEventListener("keyup", (event) => {
-    event.key === "Enter" ? addTask() : null;
+    if (event.key === "Enter") {
+      // Compara con el código de tecla "Enter" (13)
+      const taskText = taskInput.value.trim();
 
-    /**
-     * Esto es lo mismo que lo anterior, es el operador ternario if-else
-     * if (event.key === "Enter") {
-     *  addTask();
-     *  return;
-     * }
-     */
+      if (taskText === "") {
+        alert("Está vacío, introduce algo.");
+      } else {
+        const li = document.createElement("li");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "checkbox";
+
+        const taskLabel = document.createElement("label");
+        taskLabel.textContent = taskText;
+
+        checkbox.addEventListener("change", () => {
+          taskLabel.classList.toggle("completed", checkbox.checked);
+        });
+
+        li.appendChild(checkbox);
+        li.appendChild(taskLabel);
+
+        taskList.appendChild(li);
+
+        taskInput.value = "";
+        taskInput.focus();
+      }
+    }
   });
 
-  //Agragar elemento con click
-  btnTask.addEventListener("click", () => {
-    const taskText = taskInput.value.trim();
-
-    const li = document.createElement("li");
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.className = "checkbox";
-
-    const taskLabel = document.createElement("label");
-    taskLabel.textContent = 
-  });
-
-  //Limpiar lista
   cleanList.addEventListener("click", () => {
-    taskList.innerHTML = ``;
+    const task = document.querySelectorAll("li");
+
+    task.forEach((task) => taskList.removeChild(task));
   });
 });
