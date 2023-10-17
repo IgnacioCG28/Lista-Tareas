@@ -27,8 +27,13 @@ h1 {
   font-family: "Young Serif", serif;
 }
 
+ul{
+  padding: 0;
+}
+
 li {
   list-style: none;
+  
 }
 
 .centered {

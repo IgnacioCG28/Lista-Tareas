@@ -63,8 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   cleanList.addEventListener("click", () => {
-    const task = document.querySelectorAll("li");
 
-    task.forEach((task) => taskList.removeChild(task));
+    taskList.innerHTML = '';
+    //const task = document.querySelectorAll("li");
+
+    //task.forEach((task) => taskList.removeChild(task));
   });
 });
